@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de bovinos · BovinNet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+  <div class="topbar">
+    <h1>🐮 BovinNet — Gestión de bovinos</h1>
+    <a th:href="@{/bovinos/nuevo}" class="btn btn-primary">+ Registrar bovino</a>
+  </div>
+
+  <main class="content">
+    <!-- HU-03: Listar todos los bovinos registrados -->
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Arete</th>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Sexo</th>
+          <th>Fecha de nacimiento</th>
+          <th>Peso (kg)</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="b : ${bovinos}">
+          <td th:text="${b.arete}">0231</td>
+          <td th:text="${b.nombre}">Lucero</td>
+          <td th:text="${b.raza}">Cebú</td>
+          <td th:text="${b.sexo}">HEMBRA</td>
+          <td th:text="${b.fechaNacimiento}">2024-06-03</td>
+          <td th:text="${b.pesoActual}">380</td>
+          <td>
+            <span class="badge"
+                  th:classappend="${b.estado.name() == 'ACTIVO'} ? 'badge-green' : (${b.estado.name() == 'BAJA'} ? 'badge-red' : 'badge-amber')"
+                  th:text="${b.estado}">ACTIVO</span>
+          </td>
+          <td class="acciones">
+            <a th:href="@{/bovinos/{arete}/editar(arete=${b.arete})}" class="link-editar">Editar</a>
+            <form th:action="@{/bovinos/{arete}/eliminar(arete=${b.arete})}" method="post" class="form-inline"
+                  onsubmit="return confirm('¿Confirma dar de baja este bovino?');">
+              <button type="submit" class="link-eliminar">Dar de baja</button>
+            </form>
+          </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(bovinos)}">
+          <td colspan="8" class="vacio">Aún no hay bovinos registrados.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

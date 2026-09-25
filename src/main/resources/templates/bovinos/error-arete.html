@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error al guardar · BovinNet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="pantalla-centrada">
+  <!-- HU-02: el sistema impide registrar un arete duplicado (RF-10) -->
+  <div class="card alerta-error">
+    <div class="icono-error">⚠️</div>
+    <h1>No se pudo guardar el registro</h1>
+    <p th:text="${errorArete}">Ya existe un bovino registrado con ese código de arete.</p>
+    <div class="acciones-error">
+      <a th:href="@{/bovinos/nuevo}" class="btn btn-outline">Volver al formulario</a>
+      <a th:href="@{/bovinos}" class="btn btn-danger">Ver listado de bovinos</a>
+    </div>
+  </div>
+</body>
+</html>

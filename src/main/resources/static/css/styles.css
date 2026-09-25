@@ -1,0 +1,52 @@
+/* ============================================================
+   BovinNet - Módulo Gestión de Bovinos (Spring Boot / Thymeleaf)
+   Paleta reutilizada de las evidencias GA5/GA6 del proyecto
+   ============================================================ */
+:root{
+  --brown:#F0E9DD; --brown-dark:#D9C4A3; --green:#5C7A4B; --green-dark:#4B6339;
+  --cream:#FBF8F3; --terracota:#C9613D; --ink:#3D3A34; --muted:#7A7364;
+}
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:'Segoe UI', Arial, sans-serif; background:var(--brown); color:var(--ink); }
+
+.topbar{ background:var(--green); color:#fff; padding:16px 28px; display:flex; align-items:center; justify-content:space-between; }
+.topbar h1{ font-size:19px; margin:0; }
+
+.content{ padding:26px 28px; }
+
+.btn{ display:inline-block; padding:9px 18px; border-radius:8px; font-weight:600; font-size:13px; text-decoration:none; border:1.5px solid transparent; cursor:pointer; }
+.btn-primary{ background:var(--cream); color:var(--green); }
+.btn-outline{ background:transparent; color:#fff; border-color:#fff; }
+.btn-danger{ background:var(--terracota); color:#fff; }
+
+.tabla{ width:100%; border-collapse:collapse; background:var(--cream); border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(61,58,52,.1); }
+.tabla th{ background:var(--brown-dark); text-align:left; padding:10px 14px; font-size:12.5px; }
+.tabla td{ padding:10px 14px; border-bottom:1px solid #efe7da; font-size:13.5px; }
+.tabla .vacio{ text-align:center; color:var(--muted); padding:24px; }
+
+.badge{ padding:3px 10px; border-radius:14px; font-size:11px; font-weight:700; }
+.badge-green{ background:#e3ecdd; color:var(--green); }
+.badge-amber{ background:#f3e6cf; color:#8a6a2f; }
+.badge-red{ background:#f6ded4; color:var(--terracota); }
+
+.acciones{ display:flex; gap:10px; align-items:center; }
+.link-editar{ color:var(--green); font-weight:600; text-decoration:none; font-size:13px; }
+.form-inline{ display:inline; }
+.link-eliminar{ background:none; border:none; color:var(--terracota); font-weight:600; font-size:13px; cursor:pointer; padding:0; }
+
+.card{ background:var(--cream); border-radius:12px; padding:24px; box-shadow:0 1px 3px rgba(61,58,52,.1); }
+.formulario{ max-width:640px; }
+.campo{ margin-bottom:16px; flex:1; }
+.fila{ display:flex; gap:16px; }
+label{ display:block; font-size:12px; font-weight:700; color:var(--muted); margin-bottom:5px; }
+input, select{ width:100%; padding:9px 11px; border:1.5px solid var(--brown-dark); border-radius:7px; background:var(--cream); font-size:13.5px; }
+input:focus, select:focus{ outline:none; border-color:var(--green); }
+.error{ display:block; color:var(--terracota); font-size:11.5px; margin-top:4px; }
+
+.pantalla-centrada{ min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.alerta-error{ max-width:420px; text-align:center; border-top:5px solid var(--terracota); }
+.icono-error{ font-size:38px; }
+.alerta-error h1{ font-size:18px; color:var(--terracota); }
+.acciones-error{ display:flex; gap:10px; justify-content:center; margin-top:18px; }
+.alerta-error .btn-primary{ background:var(--green); color:#fff; }
+.alerta-error .btn-outline{ color:var(--green); border-color:var(--green); }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${esNuevo} ? 'Registrar bovino · BovinNet' : 'Editar bovino · BovinNet'">Registrar bovino</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+  <div class="topbar">
+    <h1 th:text="${esNuevo} ? '🐮 Registrar nuevo bovino' : '🐮 Editar bovino'">Registrar nuevo bovino</h1>
+    <a th:href="@{/bovinos}" class="btn btn-outline">← Volver al listado</a>
+  </div>
+
+  <main class="content">
+    <!-- HU-01: Registrar bovino / HU-04: Editar bovino -->
+    <form class="card formulario"
+          th:action="${esNuevo} ? @{/bovinos/nuevo} : @{/bovinos/{arete}/editar(arete=${bovino.arete})}"
+          th:object="${bovino}" method="post">
+
+      <div class="campo">
+        <label for="arete">Código de arete</label>
+        <!-- Prueba de longitud/caracteres especiales: min 4, max 10, solo letras y números -->
+        <input type="text" id="arete" th:field="*{arete}" th:readonly="${!esNuevo}" maxlength="10" placeholder="Ej: 0412">
+        <span class="error" th:if="${#fields.hasErrors('arete')}" th:errors="*{arete}">Error de arete</span>
+      </div>
+
+      <div class="campo">
+        <label for="nombre">Nombre (opcional)</label>
+        <input type="text" id="nombre" th:field="*{nombre}" maxlength="60" placeholder="Ej: Estrella">
+        <span class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error de nombre</span>
+      </div>
+
+      <div class="fila">
+        <div class="campo">
+          <label for="raza">Raza</label>
+          <input type="text" id="raza" th:field="*{raza}" maxlength="40" placeholder="Ej: Cebú">
+          <span class="error" th:if="${#fields.hasErrors('raza')}" th:errors="*{raza}">Error de raza</span>
+        </div>
+
+        <div class="campo">
+          <label for="sexo">Sexo</label>
+          <select id="sexo" th:field="*{sexo}">
+            <option value="HEMBRA">Hembra</option>
+            <option value="MACHO">Macho</option>
+          </select>
+          <span class="error" th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}">Error de sexo</span>
+        </div>
+      </div>
+
+      <div class="fila">
+        <div class="campo">
+          <!-- Prueba de validación de fecha: no puede ser futura -->
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
+          <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}">
+          <span class="error" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}">Error de fecha</span>
+        </div>
+
+        <div class="campo">
+          <!-- Prueba de validación numérica: debe ser positivo -->
+          <label for="pesoActual">Peso actual (kg)</label>
+          <input type="number" step="0.1" id="pesoActual" th:field="*{pesoActual}">
+          <span class="error" th:if="${#fields.hasErrors('pesoActual')}" th:errors="*{pesoActual}">Error de peso</span>
+        </div>
+      </div>
+
+      <div class="campo" th:unless="${esNuevo}">
+        <label for="estado">Estado</label>
+        <select id="estado" th:field="*{estado}">
+          <option value="ACTIVO">Activo</option>
+          <option value="EN_OBSERVACION">En observación</option>
+          <option value="BAJA">Baja</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" th:text="${esNuevo} ? 'Guardar bovino' : 'Actualizar bovino'">Guardar bovino</button>
+    </form>
+  </main>
+</body>
+</html>

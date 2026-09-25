@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bovino no encontrado · BovinNet</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="pantalla-centrada">
+  <div class="card alerta-error">
+    <div class="icono-error">🔍</div>
+    <h1>Bovino no encontrado</h1>
+    <p th:text="${mensaje}">No existe ningún bovino con ese código de arete.</p>
+    <div class="acciones-error">
+      <a th:href="@{/bovinos}" class="btn btn-primary">Volver al listado</a>
+    </div>
+  </div>
+</body>
+</html>
