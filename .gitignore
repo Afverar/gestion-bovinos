@@ -1,0 +1,24 @@
+# Compilados y empaquetados de Maven
+target/
+*.class
+*.jar
+*.war
+
+# Archivos de IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Base de datos H2 (si se usa en modo archivo en lugar de memoria)
+*.mv.db
+*.trace.db
