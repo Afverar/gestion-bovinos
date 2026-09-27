@@ -1,19 +1,10 @@
 ENLACE DEL REPOSITORIO REMOTO — BovinNet / Módulo Gestión de Bovinos
 ======================================================================
 
-Evidencia: GA7-220501096-AA3-EV01 / EV02
+Evidencia: GA7-220501096-AA3-EV01
 
 Este proyecto se inicializó y versionó localmente con Git (ver la
 carpeta oculta .git incluida en esta misma entrega, con el historial
 real de commits del desarrollo del módulo).
 
-INSTRUCCIONES para completar este archivo:
-1. Crea un repositorio vacío en GitHub (o GitLab) llamado, por ejemplo,
-   "bovinet-gestion-bovinos".
-2. En la carpeta del proyecto ejecuta:
-     git remote add origin <URL_DE_TU_REPOSITORIO>
-     git branch -M main
-     git push -u origin main
-3. Reemplaza la siguiente línea con la URL real de tu repositorio:
 
-REPOSITORIO: <PEGA_AQUI_LA_URL_DE_TU_REPOSITORIO_GITHUB>
