@@ -7,4 +7,4 @@ Este proyecto se inicializó y versionó localmente con Git (ver la
 carpeta oculta .git incluida en esta misma entrega, con el historial
 real de commits del desarrollo del módulo).
 
-
+https://github.com/Afverar/gestion-bovinos
